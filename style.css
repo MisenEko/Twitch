@@ -1,0 +1,125 @@
+
+
+@font-face {
+    font-family: font-gta;    
+    src: url('font/pricedownbl.ttf');
+}
+
+body{
+    background-color: #343a40;
+    margin-left: 0.8% !important;
+    margin-right: 0.8% !important;
+}
+
+.grey{
+  background-color: #BEBEBE;
+}
+
+header{
+    padding-bottom: 1%;
+    
+}
+
+#nav-title{
+  font-family: font-gta;
+  font-size: 30px;
+}
+
+nav.navbar.navbar-icon-top.navbar-expand-lg.navbar-dark.bg-dark {
+  background-color: #303337 !important;
+}
+
+.container-lg{
+  margin-left: 5% !important;
+  margin-right: 5% !important;
+}
+
+.active{
+    color:red !important;
+}
+
+
+.container-md{
+    display:flex;
+    margin: 5%;
+
+}
+
+.container{
+    padding-top: 1%;
+}
+
+.row-change {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.main-stream{
+  padding-bottom: 1%;
+}
+
+/*#twitch-embed-low{
+    display:flex;
+    background-color:#303337;
+    padding-top: 1%;
+    width: 100%;
+    overflow-x: scroll;
+   
+    
+}*/
+
+#twitch-embed-low img{
+    margin-right: 2px;
+}
+
+.thumbnail {
+    
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 400px;
+    margin: auto;
+    color: red;
+}
+
+img {
+    max-width: 256px;
+    max-height: 144px;
+}
+
+#logo-img{
+    max-width: 200px;
+    max-height: 180px;
+}
+
+figcaption {
+    background-color: #222;
+    color: white;    
+    padding: 3px;
+    text-align: center;
+}
+
+#streamer{
+    color: white;
+    font-family: font-gta;
+    font-size: 45px;
+}
+
+#streamer-logo img{
+    max-width: 150px;
+}
+
+.info-stream{
+    background:#303337;
+    min-height: 20px;
+    color:white
+}
+.info-stream div{
+    
+    padding: 25px;
+    background:#303337;
+}
+
+.info-stream {
+    margin-bottom: 10px;
+}
