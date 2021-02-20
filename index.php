@@ -1,7 +1,7 @@
   <?php
   session_start();
   include 'curl_func_return_all.php';
-  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret=cpy7gerho5pns9qg70g2dorsvtwtvc&grant_type=client_credentials', 'POST');
+  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret="nop""c&grant_type=client_credentials', 'POST');
   
   ?>
 
