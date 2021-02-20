@@ -1,9 +1,10 @@
 
 
-let altica = new showStreams('alticarp', 'https://alticarp.fr/', 'img/altica.png', 'altica')
-let faily = new showStreams('failyv','http://www.failyv.com/', 'img/failyV.png', 'faily')
-let gtalife = new showStreams('gtalife', 'https://www.gtaliferp.fr/index.php', 'img/gta-life.png', 'gtalife')
-let jumpClick = new showStreams('21jumpclick', 'https://www.gtaliferp.fr/index.php', 'img/gta-life.png', '21JumpClick')
+let altica = new showStreams('altica',  'altica')
+let faily = new showStreams('failyv', 'faily')
+let gtalife = new showStreams('gtalife', 'gtalife')
+let jumpClick = new showStreams('21jumpclick', '21JumpClick')
+let fraternity = new showStreams('fraternity', 'FRaternity')
 altica.launch()
 
 /** launch Altica's streams */
@@ -34,6 +35,13 @@ $('#21JumpClick').on('click', ()=>{
 	clearRefresh()
 })
 $('#21JumpClick').on('click', jumpClick.launch.bind(jumpClick))
+
+/** launch Fraternity */
+$('#fraternity').on('click', ()=>{
+	$('#nav-title').text('FRaternity')
+	clearRefresh()
+})
+$('#fraternity').on('click', fraternity.launch.bind(fraternity))
 
 
 /** Quick button to have white background */

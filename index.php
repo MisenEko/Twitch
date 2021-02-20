@@ -1,7 +1,7 @@
   <?php
   session_start();
   include 'curl_func_return_all.php';
-  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret=xfxj665jx7i5v8ogwf7b2iwtd6s2pe&grant_type=client_credentials', 'POST');
+  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret=cpy7gerho5pns9qg70g2dorsvtwtvc&grant_type=client_credentials', 'POST');
   
   ?>
 
@@ -77,9 +77,17 @@
               <a class="nav-link" href="#" id="21JumpClick">
                 <i></i>
                   21 Jump Click
-                  <span class="badge badge-warning" id="3"></span>
-                
-              </a>             
+                  <span class="badge badge-warning" id="3"></span>                
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="fraternity">
+                <i></i>
+                  FRaternity
+                  <span class="badge badge-warning" id="4"></span>                
+              </a>
+            </li>
+
           </ul>
           <ul class="navbar-nav ">
           <li class="nav-item">
@@ -119,7 +127,7 @@
           </div>
           <div class="container">
             <div class="row justify-content-center info-stream" id="twitch-link" style="background:#343a40;">
-              <a id="button" href="#" class="col-lg-12" style="padding-left: 0;" ><button class="btn btn-primary" style="background-color:#9147ff; border-color:#9147ff;" >Regardez sur Twitch</button></a>
+              <a id="button" href="#" class="col-lg-12" style="padding-left: 0;"  target="_blank" ><button class="btn btn-primary" style="background-color:#9147ff; border-color:#9147ff;" >Regardez sur Twitch</button></a>
             </div>
           </div>
         </div>
@@ -168,7 +176,7 @@
         let answser = ('<?php echo json_encode($json); ?>');
         let key = answser.split('"')
         sessionStorage.setItem('untruc', key[4] )        
-            </script>
+    </script>
 
     <script src="js/slider.js"></script>
     <script src="js/twitchAjax.js"></script>

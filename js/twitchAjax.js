@@ -1,7 +1,7 @@
 class twitchAjax{      
 
         constructor(){
-            this.serverList = ['alticarp', 'faily', 'gtalife','21jumpclick' ];
+            this.serverList = ['altica', 'faily', 'gtalife','21jumpclick', 'FRaternity' ];
             this.auth = sessionStorage.getItem('untruc')            
         }
 
@@ -45,7 +45,7 @@ class twitchAjax{
         }
 
         /**
-         * clear interval to stop refreshing thumvnails
+         * clear interval to stop refreshing thumbnails
          */
 
         clear(){ 
@@ -87,7 +87,7 @@ class twitchAjax{
 
 
         /**
-         * Update Count Stream too see how much live stream on each server
+         * Update Count Stream to see how much live stream on each server
          */
 
         startRefreshCount (){
@@ -97,7 +97,7 @@ class twitchAjax{
         }
 
         updateCountStream(element, index){
-            
+
             $.ajax({
                 type: 'GET',
                 url: 'https://api.twitch.tv/helix/search/channels?first=30&query='+element+'&live_only=true', /** gta V id = 32982 */
@@ -112,6 +112,8 @@ class twitchAjax{
                 error: this.handleError
             })
         }
+
+        
 
         succesResolve(index , streamList) {
             let onlineNumber = 0;
