@@ -1,17 +1,16 @@
   <?php
   session_start();
   include 'curl_func_return_all.php';
-  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret="nop""c&grant_type=client_credentials', 'POST');
+  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret=nop&grant_type=client_credentials', 'POST');
   
   ?>
 
 <!doctype html>
 <html lang="fr">
   <head>
-
     <meta charset="UTF-8">
-    <meta name="description" content="Une application web ayant pour but d'afficher des streams twitch GTA RP pour les serveurs altica, faily, gta life et 21 jump click pour vous permettre de découvrir de nouveau streamers.">
-    <meta name="keywords" content="GTA, RP, FailyV, Altica RP, GTA Life, 21 jump click">
+    <meta name="description" content="Une application web ayant pour but d'afficher des streams twitch GTA RP pour les serveurs altica, faily, gta life, 21 jump click et fraternity pour vous permettre de découvrir de nouveau streamers.">
+    <meta name="keywords" content="GTA, RP, FailyV, Altica RP, GTA Life, 21 jump click, Fraternity">
     <meta name="author" content="Fourquet Jean-Sébastien">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

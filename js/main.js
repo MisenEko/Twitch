@@ -60,6 +60,7 @@ function clearRefresh(){
 	faily.clear()
 	gtalife.clear()
 	jumpClick.clear()	
+	fraternity.clear()
 }
 
 
