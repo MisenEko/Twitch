@@ -86,6 +86,13 @@
                   <span class="badge badge-warning" id="4"></span>                
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="flashback">
+                <i></i>
+                  FlashBack
+                  <span class="badge badge-warning" id="5"></span>                
+              </a>
+            </li>
 
           </ul>
           <ul class="navbar-nav ">

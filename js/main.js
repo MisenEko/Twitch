@@ -5,6 +5,7 @@ let faily = new showStreams('failyv', 'faily')
 let gtalife = new showStreams('gtalife', 'gtalife')
 let jumpClick = new showStreams('21jumpclick', '21JumpClick')
 let fraternity = new showStreams('fraternity', 'FRaternity')
+let flashback = new showStreams('flashback', 'flashback')
 altica.launch()
 
 /** launch Altica's streams */
@@ -43,6 +44,13 @@ $('#fraternity').on('click', ()=>{
 })
 $('#fraternity').on('click', fraternity.launch.bind(fraternity))
 
+/** launch Flashback */
+$('#flashback').on('click', ()=>{
+	$('#nav-title').text('FlashBack')
+	clearRefresh()
+})
+$('#flashback').on('click', flashback.launch.bind(flashback))
+
 
 /** Quick button to have white background */
 $('.fa-lightbulb').on('click', function(){
@@ -61,6 +69,7 @@ function clearRefresh(){
 	gtalife.clear()
 	jumpClick.clear()	
 	fraternity.clear()
+	flashback.clear()
 }
 
 

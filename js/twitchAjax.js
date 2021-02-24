@@ -1,7 +1,7 @@
 class twitchAjax{      
 
         constructor(){
-            this.serverList = ['altica', 'faily', 'gtalife','21jumpclick', 'FRaternity' ];
+            this.serverList = ['altica', 'faily', 'gtalife','21jumpclick', 'FRaternity', 'flashback'];
             this.auth = sessionStorage.getItem('untruc')            
         }
 
