@@ -23,6 +23,7 @@ header{
 #nav-title{
   font-family: font-gta;
   font-size: 30px;
+  width: 10%;
 }
 
 nav.navbar.navbar-icon-top.navbar-expand-lg.navbar-dark.bg-dark {

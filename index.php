@@ -1,7 +1,7 @@
   <?php
   session_start();
   include 'curl_func_return_all.php';
-  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret=nop&grant_type=client_credentials', 'POST');
+  $json = doCurl('https://id.twitch.tv/oauth2/token?client_id=bgbezb2vov7jc4twxauhw3yh30ubbx&client_secret=cpy7gerho5pns9qg70g2dorsvtwtvc&grant_type=client_credentials', 'POST');
   
   ?>
 
@@ -49,12 +49,12 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#" id="altica">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" id="altica">
                 <i></i>
                  Altica RP
                  <span class="badge badge-warning" id="0"></span>
-                </a>
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" id="faily">
@@ -179,9 +179,11 @@
 
     <!-- javascript -->
     <script type='text/javascript'>
+
         let answser = ('<?php echo json_encode($json); ?>');
         let key = answser.split('"')
-        sessionStorage.setItem('untruc', key[4] )        
+        sessionStorage.setItem('untruc', key[4] )  
+   
     </script>
 
     <script src="js/slider.js"></script>

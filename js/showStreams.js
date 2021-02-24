@@ -16,21 +16,14 @@ class showStreams extends twitchAjax{
         $("#carousel, #twitch-embed-main , #streamer-logo , #streamer, #stream-title").empty();
         $('#block-1 img').remove();
         
-        this.streamData(launchFunction) ;       
-              
-               
-        this.active();
+        this.streamData(launchFunction);
         this.clear();
         this.startRefreshThumbNail();
-        this.startRefreshCount() ;
-        
+        this.startRefreshCount() ;        
         
     }
 
-    active(){            
-        $('a').removeClass('active');   
-        $('#'+this.idServer).addClass('active');
-    }
+
 
 
 /**
