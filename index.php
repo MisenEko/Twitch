@@ -18,6 +18,8 @@
     <link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="style.css">    
     <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.css">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -140,28 +142,13 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
   <!-- slider -->
-    <div class="wrap">
-      <div class="window">
-        <div id="carousel"></div>
-      </div>
-      <span class="fas fa-chevron-left" id="prev"></span>
-      <span class="fas fa-chevron-right"id="next"></span>
-    </div>
+
+<div id="slider">
+
+</div>
 
 
-    
 
 </br>
 
@@ -178,7 +165,13 @@
     </footer>
 
     <!-- javascript -->
+
+    <script src="jquery.min.js"></script>
+
+
     <script type='text/javascript'>
+
+
 
         let answser = ('<?php echo json_encode($json); ?>');
         let key = answser.split('"')
@@ -190,6 +183,11 @@
     <script src="js/twitchAjax.js"></script>
     <script src="js/showStreams.js"></script>
     <script src="js/main.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+
+    <script>      
+
+    </script>
 
   </body>
 </html>

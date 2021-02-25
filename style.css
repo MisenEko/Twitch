@@ -83,7 +83,7 @@ nav.navbar.navbar-icon-top.navbar-expand-lg.navbar-dark.bg-dark {
     color: red;
 }
 
-img {
+.thumbnail img {
     max-width: 256px;
     max-height: 144px;
 }

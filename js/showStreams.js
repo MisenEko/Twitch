@@ -13,7 +13,7 @@ class showStreams extends twitchAjax{
     launch(){
 
         let launchFunction = 1;
-        $("#carousel, #twitch-embed-main , #streamer-logo , #streamer, #stream-title").empty();
+        $("#slider, #twitch-embed-main , #streamer-logo , #streamer, #stream-title").empty();
         $('#block-1 img').remove();
         
         this.streamData(launchFunction);
@@ -44,7 +44,7 @@ class showStreams extends twitchAjax{
             if(data['data'].length === 0){
 
                 $('#streamers-info').hide();
-                $('#carousel').hide();
+                $('#slider').hide();
                 let blank = '<div class="alert alert-danger" id="blank"> Aucun streamer ne diffuse en ce moment de scène lié au serveur : '+ this.idServer + ' </div>';               
                 $("#twitch-embed-main").append(blank);
 
@@ -68,13 +68,16 @@ class showStreams extends twitchAjax{
         
         let img = '';
 
+        let owl = $('<div class="owl-carousel"></div>')
+        $('#slider').append(owl);
+
         $('#streamers-info').show();
-        $('#carousel').show();
+        $('#slider').show();
 
 
         for (let i = 0 ; i < gtalist.length ; i++){ 
-            
-                img =$('<figure class="slide"><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-256x144.jpg" alt="image gta rp serveur '+this.idServer+'"><figcaption>'+y+'.'+gtadata[i].display_name+'</figcaption></figure>')
+
+                img =$('<div><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-374x250.jpg" alt="image gta rp serveur '+this.idServer+'"></div>')
                 .on("click", (index => {                                
                     return e => { 
                         $("#twitch-embed-main").empty();                                                                    
@@ -94,14 +97,33 @@ class showStreams extends twitchAjax{
 
                     };
 
-                })(i));
-
-                
+                })(i));              
                         
-                $('#carousel').append(img);
+
+
+                $('.owl-carousel').append(img);
                y++
                
             };
+
+            $('.owl-carousel').owlCarousel({    
+                loop:true,              
+                margin:0,
+                autoplay:true,
+                
+                responsive:{
+                    0:{
+                        items:2,                      
+                        dots:false
+                    },
+                    960:{
+                        items:3,                      
+                    },
+                    1000:{
+                        items:5
+                    }
+                }
+            })
         
         
         /** if first load, so show this stream */

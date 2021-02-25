@@ -60,6 +60,7 @@ class twitchAjax{
             let functionId=2
 
             $('#carousel').empty()
+            $('#slider').empty()
             this.streamData(functionId)
         }
 
