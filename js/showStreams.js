@@ -74,13 +74,7 @@ class showStreams extends twitchAjax{
 
         for (let i = 0 ; i < gtalist.length ; i++){ 
             
-                img =$('<figure class="slide"><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'
-                +gtalist[i]+
-                '-256x144.jpg" alt="image gta rp serveur '
-                +this.idServer+
-                '"><figcaption>'
-                +y+'.'+gtadata[i].display_name+
-                '</figcaption></figure>')
+                img =$('<figure class="slide"><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-256x144.jpg" alt="image gta rp serveur '+this.idServer+'"><figcaption>'+y+'.'+gtadata[i].display_name+'</figcaption></figure>')
                 .on("click", (index => {                                
                     return e => { 
                         $("#twitch-embed-main").empty();                                                                    

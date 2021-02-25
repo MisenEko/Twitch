@@ -8,7 +8,7 @@ var carousel = $('#carousel'),
 $('#next').click(function(){ shiftSlide(-1) })
 $('#prev').click(function(){ shiftSlide(1) })
 
-/*carousel.on('mousedown', function(){                 //for draging images, useless here.
+carousel.on('mousedown', function(){                 //for draging images, useless here.
   if (carousel.hasClass('transition')) return;
   dragStart = event.pageX;
   $(this).on('mousemove', function(){
@@ -24,7 +24,7 @@ $('#prev').click(function(){ shiftSlide(1) })
 
 function dragPos() {
   return dragEnd - dragStart; 
-}*/
+}
 
 function shiftSlide(direction) {
   if (carousel.hasClass('transition')) return;
@@ -43,3 +43,5 @@ function shiftSlide(direction) {
 		carousel.css('transform','translateX(0px)'); 
   },100)
 }
+
+
