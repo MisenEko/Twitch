@@ -77,7 +77,7 @@ class showStreams extends twitchAjax{
 
         for (let i = 0 ; i < gtalist.length ; i++){ 
 
-                img =$('<div><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-374x250.jpg" alt="image gta rp serveur '+this.idServer+'"></div>')
+                img =$('<div class="img-wrapper"><figure><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-256x144.jpg" alt="image gta rp serveur '+this.idServer+'"><figcaption>'+gtadata[i].display_name+'</figcaption><figure></div>')
                 .on("click", (index => {                                
                     return e => { 
                         $("#twitch-embed-main").empty();                                                                    
@@ -106,24 +106,9 @@ class showStreams extends twitchAjax{
                
             };
 
-            $('.owl-carousel').owlCarousel({    
-                loop:true,              
-                margin:0,
-                autoplay:true,
-                
-                responsive:{
-                    0:{
-                        items:2,                      
-                        dots:false
-                    },
-                    960:{
-                        items:3,                      
-                    },
-                    1000:{
-                        items:5
-                    }
-                }
-            })
+            this.sliderLogic(gtalist.length)
+
+
         
         
         /** if first load, so show this stream */
@@ -169,6 +154,71 @@ class showStreams extends twitchAjax{
         }
 
         return gtaData;
+    }
+
+    sliderLogic(num){
+        if(num === 1){
+            $('.owl-carousel').owlCarousel({    
+                center: true,
+                items:1,
+                loop:false,
+                margin:0,
+
+                
+                responsive:{
+                    0:{
+                        items:2,                      
+                        dots:false
+                    },
+                    960:{
+                        items:5,                      
+                    },
+                    1000:{
+                        items:5
+                        
+                    }
+                }
+            })
+        } else if(num < 5){
+            $('.owl-carousel').owlCarousel({ 
+                items: 5,
+                margin:1,
+
+                
+                responsive:{
+                    0:{
+                        items:2,                      
+                        dots:false
+                    },
+                    960:{
+                        items:3,                      
+                    },
+                    1000:{
+                        items:5
+                        
+                    }
+                }
+            })
+        } else {
+            $('.owl-carousel').owlCarousel({ 
+                loop: true,
+                items: 5,
+                margin:1,                
+                responsive:{
+                    0:{
+                        items:2,                      
+                        dots:false
+                    },
+                    960:{
+                        items:3,                      
+                    },
+                    1000:{
+                        items:5
+                        
+                    }
+                }
+            })
+        }
     }
 
     

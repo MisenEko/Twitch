@@ -73,6 +73,13 @@ nav.navbar.navbar-icon-top.navbar-expand-lg.navbar-dark.bg-dark {
     margin-right: 2px;
 }
 
+.img-wrapper{
+    display: block;
+    width: 244px;
+    height: auto;
+}
+
+
 .thumbnail {
     
     display: flex;
