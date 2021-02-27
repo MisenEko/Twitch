@@ -138,7 +138,12 @@ class showStreams extends twitchAjax{
         for (let i = 0 ; i < data['data'].length ; i++){
             if(data['data'][i]['game_id'] == 32982){
                 streamer = data['data'][i]['display_name'].toLowerCase();
+                if(streamer == 'kaan_altinay'){
+                    i++
+                }else{
                 gtalist.push(streamer);
+                }
+                
             }
         }
         return gtalist;
