@@ -16,6 +16,7 @@ class showStreams extends twitchAjax{
         $("#slider, #twitch-embed-main , #streamer-logo , #streamer, #stream-title").empty();
         $('#block-1 img').remove();
         
+        
         this.streamData(launchFunction);
         this.clear();
         this.startRefreshThumbNail();
