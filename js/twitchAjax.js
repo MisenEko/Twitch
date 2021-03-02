@@ -37,7 +37,8 @@ class twitchAjax{
         } 
         
         viewerCount(streamer){  //get streams data for GTA RP specific servers
-            
+            let viewers = [];
+
             $.ajax({
                 type: 'GET',
                 url: 'https://api.twitch.tv/helix/streams?user_login='+streamer+'',        
@@ -47,16 +48,16 @@ class twitchAjax{
                         "Authorization": "Bearer "+this.auth
                         },
 
-                success: (streamList) =>{
-                    console.log(streamList)
-                    
+                success: (data) =>{
+                    viewers.push(data['data'][0]['viewer_count'])                    
 
                 },
 
                 error: function(data){
                     console.log(data)
-                }
+                }            
             })
+
         } 
 
         /**
@@ -64,7 +65,7 @@ class twitchAjax{
          */
 
         startRefreshThumbNail (){
-            this.thumbnailRefresh = setInterval( this.updateThumbNailStream.bind(this) ,60000)  
+            this.thumbnailRefresh = setInterval( this.updateThumbNailStream.bind(this) ,300000)  
         }
 
         /**

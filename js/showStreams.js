@@ -67,6 +67,9 @@ class showStreams extends twitchAjax{
         let y = 1; 
         let gtalist = this.gtaSort(data);
         let gtadata = this.gtaData(data);
+
+        this.viewerCount(gtalist)
+
         
         let img = '';
 
@@ -142,8 +145,7 @@ class showStreams extends twitchAjax{
                 if(streamer == 'kaan_altinay'){
                     i++
                 }else{
-                gtalist.push(data['data'][i]['broadcaster_login']);
-                
+                gtalist.push(data['data'][i]['broadcaster_login']);                
                 }                
             }
         }
