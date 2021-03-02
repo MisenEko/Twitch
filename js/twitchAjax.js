@@ -9,7 +9,7 @@ class twitchAjax{
             functionId = functionId
             $.ajax({
                 type: 'GET',
-                url: 'https://api.twitch.tv/helix/search/channels?first=30&query='+this.serverRP+'&live_only=true', /** gta V id = 32982 */                    
+                url: 'https://api.twitch.tv/helix/search/channels?first=30&query='+this.serverRP+'&live_only=true',                 
                 dataType:'json',
                 headers: {
                         "Client-ID": 'bgbezb2vov7jc4twxauhw3yh30ubbx',
@@ -34,7 +34,30 @@ class twitchAjax{
                     console.log('nop')
                 }
             })
-        }       
+        } 
+        
+        viewerCount(streamer){  //get streams data for GTA RP specific servers
+            
+            $.ajax({
+                type: 'GET',
+                url: 'https://api.twitch.tv/helix/streams?user_login='+streamer+'',        
+                dataType:'json',
+                headers: {
+                        "Client-ID": 'bgbezb2vov7jc4twxauhw3yh30ubbx',
+                        "Authorization": "Bearer "+this.auth
+                        },
+
+                success: (streamList) =>{
+                    console.log(streamList)
+                    
+
+                },
+
+                error: function(data){
+                    console.log(data)
+                }
+            })
+        } 
 
         /**
          * Update stream's thumbnail every 1 minutes
@@ -113,6 +136,8 @@ class twitchAjax{
                 error: this.handleError
             })
         }
+
+        
 
         
 

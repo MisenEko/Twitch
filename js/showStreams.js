@@ -18,6 +18,7 @@ class showStreams extends twitchAjax{
         
         
         this.streamData(launchFunction);
+        this.viewerCount();
         this.clear();
         this.startRefreshThumbNail();
         this.startRefreshCount() ;        
@@ -58,11 +59,11 @@ class showStreams extends twitchAjax{
     /**
      * function to get all GTA stream with the server name and show it
      * 
-     * @param {check if it's  afirst call or not} firstCall 
+     * @param {check if it's  a first call or not} firstCall 
      * @param {data from ajax call} data 
      */
     displayStream(firstCall, data){
-        
+        console.log(data)
         let y = 1; 
         let gtalist = this.gtaSort(data);
         let gtadata = this.gtaData(data);
@@ -135,16 +136,14 @@ class showStreams extends twitchAjax{
 
     gtaSort(data){
         let gtalist=[];
-        let streamer = '';
+
         for (let i = 0 ; i < data['data'].length ; i++){
             if(data['data'][i]['game_id'] == 32982){
-                streamer = data['data'][i]['display_name'].toLowerCase();
                 if(streamer == 'kaan_altinay'){
                     i++
                 }else{
-                gtalist.push(streamer);
-                }
-                
+                gtalist.push(data['data'][i]['broadcaster_login']);
+                }                
             }
         }
         return gtalist;
