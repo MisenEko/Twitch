@@ -143,6 +143,7 @@ class showStreams extends twitchAjax{
                     i++
                 }else{
                 gtalist.push(data['data'][i]['broadcaster_login']);
+                
                 }                
             }
         }
