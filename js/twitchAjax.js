@@ -2,7 +2,8 @@ class twitchAjax{
 
         constructor(){
             this.serverList = ['altica', 'faily', 'gtalife','21jumpclick', 'FRaternity', 'flashback'];
-            this.auth = sessionStorage.getItem('untruc')            
+            this.auth = sessionStorage.getItem('untruc') 
+                       
         }
 
         streamData(functionId){  //get streams data for GTA RP specific servers
@@ -31,7 +32,8 @@ class twitchAjax{
                 },
 
                 error: function(data){
-                    console.log('nop')
+                    console.log('error')
+                    console.log(data)
                 }
             })
         } 
@@ -39,25 +41,32 @@ class twitchAjax{
         viewerCount(streamer){  //get streams data for GTA RP specific servers
             let viewers = [];
 
-            $.ajax({
-                type: 'GET',
-                url: 'https://api.twitch.tv/helix/streams?user_login='+streamer+'',        
-                dataType:'json',
-                headers: {
-                        "Client-ID": 'bgbezb2vov7jc4twxauhw3yh30ubbx',
-                        "Authorization": "Bearer "+this.auth
-                        },
+            streamer.forEach((element, index) => {                
+            
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://api.twitch.tv/helix/streams?user_login='+element+'',        
+                    dataType:'json',
+                    headers: {
+                            "Client-ID": 'bgbezb2vov7jc4twxauhw3yh30ubbx',
+                            "Authorization": "Bearer "+this.auth
+                            },
 
-                success: (data) =>{
-                    viewers.push(data['data'][0]['viewer_count'])                    
+                    success: (data) =>{
+                        console.log(data)
+                        viewers.push([element, data['data'][0]['viewer_count']])
+                        if(index === streamer.length-1){
+                            this.audience(viewers)
+                        }
+                    },
 
-                },
+                    error: function(data){
+                        console.log(data)
+                    }            
+                })
 
-                error: function(data){
-                    console.log(data)
-                }            
-            })
-
+            });
+     
         } 
 
         /**

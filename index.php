@@ -148,7 +148,17 @@
 
 </div>
 
-
+<table class="table table-bordered table-striped" id="table-box" style="background-color: white;">
+    <thead>
+      <tr>
+        <th>Streamer Name</th>
+        <th>viewers</th>
+        <th>Trend</th>
+      </tr>
+    </thead>
+    <tbody id="myTable" class="table-in">
+    </tbody>
+</table>
 
 </br>
 

@@ -15,10 +15,10 @@ class showStreams extends twitchAjax{
         let launchFunction = 1;
         $("#slider, #twitch-embed-main , #streamer-logo , #streamer, #stream-title").empty();
         $('#block-1 img').remove();
+
         
         
         this.streamData(launchFunction);
-        this.viewerCount();
         this.clear();
         this.startRefreshThumbNail();
         this.startRefreshCount() ;        
@@ -28,21 +28,21 @@ class showStreams extends twitchAjax{
 
 
 
-/**
- * function to check if a stream is live or not
- * 
- * @param {data from ajax call} data 
- * @param {*} idServer 
- */
+    /**
+     * function to check if a stream is live or not
+     * 
+     * @param {data from ajax call} data 
+     * @param {*} idServer 
+     */
 
     showStream(data, idServer){          //function to play stream on player and add thumbnail on the webpage
-                
-        
+                    
+            
         this.idServer = idServer.charAt(0).toUpperCase() + idServer.slice(1);
         this.slideIndex = 1;
         let firstCall = true;
         this.serverList.forEach(this.updateCountStream.bind(this));
-        
+            
             if(data['data'].length === 0){
 
                 $('#streamers-info').hide();
@@ -63,79 +63,90 @@ class showStreams extends twitchAjax{
      * @param {data from ajax call} data 
      */
     displayStream(firstCall, data){
-        console.log(data)
+
         let y = 1; 
         let gtalist = this.gtaSort(data);
-        let gtadata = this.gtaData(data);
-
+        let gtadata = this.gtaData(data);        
+        let img = '';
+        let owl = $('<div class="owl-carousel"></div>')
+        
+        /**Ajax call to get audience */
         this.viewerCount(gtalist)
 
-        
-        let img = '';
-
-        let owl = $('<div class="owl-carousel"></div>')
+        /*inject the slider and show streamers info*/ 
         $('#slider').append(owl);
-
         $('#streamers-info').show();
         $('#slider').show();
 
 
-        for (let i = 0 ; i < gtalist.length ; i++){ 
+            for (let i = 0 ; i < gtalist.length ; i++){ 
 
-                img =$('<div class="img-wrapper"><figure><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-256x144.jpg" alt="image gta rp serveur '+this.idServer+'"><figcaption>'+gtadata[i].display_name+'</figcaption><figure></div>')
-                .on("click", (index => {                                
-                    return e => { 
-                        $("#twitch-embed-main").empty();                                                                    
-                        new Twitch.Embed("twitch-embed-main", {
-                            width: '80%',
-                            height: '80%',
-                            channel: gtalist[index],                                    
-                            layout: "video",                                        
-                            parent: ["embed.example.com", "othersite.example.com"]                                    
-                        });
+                    img =$('<div class="img-wrapper"><figure><img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_'+gtalist[i]+'-256x144.jpg" alt="image gta rp serveur '+this.idServer+'"><figcaption>'+gtadata[i].display_name+'</figcaption><figure></div>')
+                    .on("click", (index => {                                
+                        return e => { 
+                            $("#twitch-embed-main").empty();                                                                    
+                            new Twitch.Embed("twitch-embed-main", {
+                                width: '80%',
+                                height: '80%',
+                                channel: gtalist[index],                                    
+                                layout: "video",                                        
+                                parent: ["embed.example.com", "othersite.example.com"]                                    
+                            });
 
-                        $('#streamer-logo').empty();  
-                        $('#streamer').html(gtadata[i].display_name);  
-                        $('#streamer-logo').append('<img src="'+gtadata[i].thumbnail_url+'">');
-                        $('#stream-title').html(gtadata[i].title);
-                        document.getElementById('button').setAttribute('href','https://www.twitch.tv/'+gtalist[i]+'');                      
+                            $('#streamer-logo').empty();  
+                            $('#streamer').html(gtadata[i].display_name);  
+                            $('#streamer-logo').append('<img src="'+gtadata[i].thumbnail_url+'">');
+                            $('#stream-title').html(gtadata[i].title);
+                            document.getElementById('button').setAttribute('href','https://www.twitch.tv/'+gtalist[i]+'');                      
 
-                    };
+                        };
 
-                })(i));              
-                        
-
-
-                $('.owl-carousel').append(img);
-               y++
-               
-            };
-
-            this.sliderLogic(gtalist.length)
+                    })(i));              
+                            
 
 
-        
-        
-        /** if first load, so show this stream */
-        if(firstCall == true){            
-            document.getElementById('button').setAttribute('href','https://www.twitch.tv/'+gtalist[0]+'');                      //href("https://www.twitch.tv/"+this.gtalist[0]+"_")
-            new Twitch.Embed("twitch-embed-main", {
-                width: '80%',
-                height: '80%',
-                channel: gtalist[0],
-                layout: "video",
-                parent: ["embed.example.com", "othersite.example.com"]
-            }); 
+                    $('.owl-carousel').append(img);
+                y++
+                
+                };
+
+                this.sliderLogic(gtalist.length)
+
+
             
-            $('#streamer-logo').empty(); 
-            $('#streamer').html(gtadata[0].display_name);                                    
-            $('#streamer-logo').append('<img src="'+gtadata[0].thumbnail_url+'">');
-            $('#stream-title').html(gtadata[0].title);
-        };
+            
+            /** if first load, so show this stream */
+            if(firstCall == true){            
+                document.getElementById('button').setAttribute('href','https://www.twitch.tv/'+gtalist[0]+'');                      //href("https://www.twitch.tv/"+this.gtalist[0]+"_")
+                new Twitch.Embed("twitch-embed-main", {
+                    width: '80%',
+                    height: '80%',
+                    channel: gtalist[0],
+                    layout: "video",
+                    parent: ["embed.example.com", "othersite.example.com"]
+                }); 
+                
+                $('#streamer-logo').empty(); 
+                $('#streamer').html(gtadata[0].display_name);                                    
+                $('#streamer-logo').append('<img src="'+gtadata[0].thumbnail_url+'">');
+                $('#stream-title').html(gtadata[0].title);
+            };
 
 
 
     };
+
+    audience(viewers){
+        console.log(viewers)
+
+        for(let i = 0; i < viewers.length; i++){
+            for(let y = 0; y < 1; y++){
+                $('.table-in').append($('<tr><td>'+viewers[i][y]+'</td><td>'+viewers[i][y+1]+'</td><td class="link">Go to the stream</td></tr>'))
+            }
+        }
+
+
+    }
 
     gtaSort(data){
         let gtalist=[];
@@ -145,11 +156,11 @@ class showStreams extends twitchAjax{
                 if(streamer == 'kaan_altinay'){
                     i++
                 }else{
-                gtalist.push(data['data'][i]['broadcaster_login']);                
+                    gtalist.push(data['data'][i]['broadcaster_login']);                
                 }                
             }
         }
-        return gtalist;
+            return gtalist;
     }
     
     gtaData(data){
