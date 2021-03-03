@@ -40,32 +40,33 @@ class twitchAjax{
         
         viewerCount(streamer){  //get streams data for GTA RP specific servers
             let viewers = [];
+            let test = [];
 
-            streamer.forEach((element, index) => {                
+            for (let i = 0 ; i < streamer.length ; i++){                
             
-                $.ajax({
+              viewers.push( $.ajax({
                     type: 'GET',
-                    url: 'https://api.twitch.tv/helix/streams?user_login='+element+'',        
-                    dataType:'json',
+                    url: 'https://api.twitch.tv/helix/streams?user_login='+streamer[i]+'',        
+                    dataType:'array',
                     headers: {
                             "Client-ID": 'bgbezb2vov7jc4twxauhw3yh30ubbx',
                             "Authorization": "Bearer "+this.auth
                             },
 
-                    success: (data) =>{
-                        console.log(data)
-                        viewers.push([element, data['data'][0]['viewer_count']])
-                        if(index === streamer.length-1){
-                            this.audience(viewers)
-                        }
+                    success: function(data) {
+                        return data['data'][0]['viewer_count']
                     },
 
                     error: function(data){
-                        console.log(data)
+                        console.log('nop')
                     }            
-                })
+                }))
 
-            });
+
+
+            };
+            
+            console.log(viewers)
      
         } 
 
