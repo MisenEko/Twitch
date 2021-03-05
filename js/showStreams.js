@@ -13,8 +13,9 @@ class showStreams extends twitchAjax{
     launch(){
 
         let launchFunction = 1;
-        $("#slider, #twitch-embed-main , #streamer-logo , #streamer, #stream-title").empty();
+        $("#slider, #twitch-embed-main , #streamer-logo , #streamer, #stream-title, .table-in").empty();
         $('#block-1 img').remove();
+        
 
         
         
@@ -71,6 +72,7 @@ class showStreams extends twitchAjax{
         let owl = $('<div class="owl-carousel"></div>')
         
         /**Ajax call to get audience */
+
         this.viewerCount(gtalist)
 
         /*inject the slider and show streamers info*/ 
@@ -137,11 +139,10 @@ class showStreams extends twitchAjax{
     };
 
     audience(viewers){
-        console.log(viewers)
-
+        console.log('test')
         for(let i = 0; i < viewers.length; i++){
             for(let y = 0; y < 1; y++){
-                $('.table-in').append($('<tr><td>'+viewers[i][y]+'</td><td>'+viewers[i][y+1]+'</td><td class="link">Go to the stream</td></tr>'))
+                $('.table-in').append($('<tr><td>'+viewers[i][y+1]+'</td><td>'+viewers[i][y+2]+'</td><td class="link">Go to the stream</td></tr>'))
             }
         }
 

@@ -38,37 +38,45 @@ class twitchAjax{
             })
         } 
         
-        viewerCount(streamer){  //get streams data for GTA RP specific servers
+        viewerCount(streamer){
             let viewers = [];
-            let test = [];
-
-            for (let i = 0 ; i < streamer.length ; i++){                
+            this.streamerList = streamer;
+            let completedCalls = 0;
+            for (let i = 0 ; i < this.streamerList.length ; i++){               
             
-              viewers.push( $.ajax({
+            $.ajax({
                     type: 'GET',
-                    url: 'https://api.twitch.tv/helix/streams?user_login='+streamer[i]+'',        
-                    dataType:'array',
+                    url: 'https://api.twitch.tv/helix/streams?user_login='+this.streamerList[i]+'',     
+                    dataType:'JSON',
                     headers: {
                             "Client-ID": 'bgbezb2vov7jc4twxauhw3yh30ubbx',
                             "Authorization": "Bearer "+this.auth
-                            },
+                            },                   
+                    success: (data)=> {
+                        console.log(data['data'].length)
+                        if(data['data'].length != 0 ){
+                            viewers.push([i, this.streamerList[i], data['data'][0]['viewer_count']]);
+                            console.log(viewers)
 
-                    success: function(data) {
-                        return data['data'][0]['viewer_count']
+                        }
+                        completedCalls++;
+                   
                     },
+                    complete: ()=> { 
 
+                      if(completedCalls === streamer.length) {
+                          this.audience(viewers)
+                           
+                      }
+                   },
                     error: function(data){
-                        console.log('nop')
+                        console.log(data)
                     }            
-                }))
-
-
-
+                })
             };
-            
-            console.log(viewers)
-     
-        } 
+
+        
+        }
 
         /**
          * Update stream's thumbnail every 1 minutes
