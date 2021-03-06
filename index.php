@@ -189,6 +189,7 @@
    
     </script>
 
+    <script src="js/audience.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/twitchAjax.js"></script>
     <script src="js/showStreams.js"></script>

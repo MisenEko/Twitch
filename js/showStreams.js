@@ -73,7 +73,7 @@ class showStreams extends twitchAjax{
         
         /**Ajax call to get audience */
 
-        this.viewerCount(gtalist)
+        /*this.viewerCount(gtalist)*/
 
         /*inject the slider and show streamers info*/ 
         $('#slider').append(owl);
@@ -138,7 +138,7 @@ class showStreams extends twitchAjax{
 
     };
 
-    audience(viewers){
+   /* audience(viewers){
         console.log('test')
         for(let i = 0; i < viewers.length; i++){
             for(let y = 0; y < 1; y++){
@@ -147,7 +147,7 @@ class showStreams extends twitchAjax{
         }
 
 
-    }
+    }*/
 
     gtaSort(data){
         let gtalist=[];

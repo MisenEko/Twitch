@@ -38,7 +38,7 @@ class twitchAjax{
             })
         } 
         
-        viewerCount(streamer){
+        /*viewerCount(streamer){
             let viewers = [];
             this.streamerList = streamer;
             let completedCalls = 0;
@@ -76,7 +76,7 @@ class twitchAjax{
             };
 
         
-        }
+        }*/
 
         /**
          * Update stream's thumbnail every 1 minutes
