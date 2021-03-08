@@ -8,6 +8,7 @@ class Audience {
 
     launch(){
         this.streamData();
+        this.audienceRefresh()
     }
 
     streamData(){  //get streams data for GTA RP specific servers
@@ -95,15 +96,15 @@ class Audience {
             }
         }
 
-        this.audienceRefresh()
+        
     }
 
     audienceRefresh(){
-        this.audienceRefresh = setInterval(this.streamData.bind(this), 3000)
+        this.refresh = setInterval(this.streamData.bind(this), 3000)
     }
 
     clear(){
-        clearInterval(this.audienceRefresh)
+        clearInterval(this.refresh)
        }
 
 
