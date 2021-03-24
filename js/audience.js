@@ -24,6 +24,7 @@ class Audience {
 
             success: (data) =>{               
                 this.streamerGta(data)
+                
             },
 
             error: function(data){
